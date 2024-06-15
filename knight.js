@@ -14,7 +14,7 @@ function knightMoves(start, end) {
     start = {parent:undefined, x:start[0], y:start[1]};
     queue.push(start);
 
-    let count = 0;
+    let count = -1;
     let final;
     while(queue.length !== 0) {
         let node = queue.shift();
@@ -38,7 +38,7 @@ function knightMoves(start, end) {
     }
 
     const movesToEnd = processMoves(final);
-
+    console.log(`You made it in ${count} moves`);
     console.log("Here are your moves: " + movesToEnd);
 
     function processMoves(node) {
@@ -48,8 +48,6 @@ function knightMoves(start, end) {
             node = node.parent;
             count++;
         }
-
-        console.log("In process moves");
 
         moves = moves.reverse();
         return moves;
